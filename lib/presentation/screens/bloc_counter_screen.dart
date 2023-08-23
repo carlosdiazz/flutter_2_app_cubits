@@ -51,15 +51,15 @@ class BlocCounterView extends StatelessWidget {
         children: [
           FloatingActionButton(
               heroTag: "1",
-              child: const Text("+3"),
-              onPressed: () => increaseCounterBy(context, 3)),
+              child: const Text("+10"),
+              onPressed: () => increaseCounterBy(context, 10)),
           const SizedBox(
             height: 10,
           ),
           FloatingActionButton(
               heroTag: "2",
-              child: const Text("+2"),
-              onPressed: () => increaseCounterBy(context, 2)),
+              child: const Text("+5"),
+              onPressed: () => increaseCounterBy(context, 5)),
           const SizedBox(
             height: 10,
           ),
