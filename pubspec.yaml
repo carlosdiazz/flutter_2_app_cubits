@@ -13,6 +13,8 @@ dependencies:
   flutter_bloc: ^8.1.3 #Gestor de estado
   equatable: ^2.0.5 #Comparar Objecto
   formz: ^0.6.0 #Validar Formualrio
+  firebase_messaging: ^14.6.7 #Enviar notificaciones
+  firebase_core: ^2.15.1 #Core
 
 dev_dependencies:
   flutter_test:

@@ -8,6 +8,7 @@ class AppRoutes {
   static const String cubitCounter = "/cubits";
   static const String blocCounter = "/counter-bloc";
   static const String registerScreen = "/register";
+  static const String notificationsScreen = "/notificationsScreen";
 }
 
 final appRouter = GoRouter(routes: [
@@ -26,5 +27,9 @@ final appRouter = GoRouter(routes: [
   GoRoute(
     path: AppRoutes.registerScreen,
     builder: (context, state) => const RegisterScreen(),
+  ),
+  GoRoute(
+    path: AppRoutes.notificationsScreen,
+    builder: (context, state) => const NotificationsScreen(),
   )
 ]);

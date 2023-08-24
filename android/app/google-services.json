@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "253539472853",
+    "project_id": "flutter-notificaciones-ad729",
+    "storage_bucket": "flutter-notificaciones-ad729.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253539472853:android:e924af176ffeffb4b1595c",
+        "android_client_info": {
+          "package_name": "com.carlosdiaz.flutter_2_forms_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253539472853-dso3mo6tghrrgvfgcgpem1bir3j16g9h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdi7Fp073MB_f2EPZHra05uAazZnwBpBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "253539472853-dso3mo6tghrrgvfgcgpem1bir3j16g9h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

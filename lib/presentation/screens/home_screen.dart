@@ -34,6 +34,16 @@ class HomeScreen extends StatelessWidget {
             trailing: const Icon(Icons.arrow_forward_ios_outlined),
             onTap: () => context.push(AppRoutes.registerScreen),
           ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Divider(),
+          ),
+          ListTile(
+            title: const Text("Notificaciones"),
+            subtitle: const Text("Prueba de notificaciones"),
+            trailing: const Icon(Icons.arrow_forward_ios_outlined),
+            onTap: () => context.push(AppRoutes.notificationsScreen),
+          ),
         ],
       ),
     );
