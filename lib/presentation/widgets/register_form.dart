@@ -3,41 +3,33 @@ import 'package:flutter_2_forms_app/presentation/blocs/register_cubit/register_c
 import 'package:flutter_2_forms_app/presentation/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RegisterForm extends StatefulWidget {
+class RegisterForm extends StatelessWidget {
   const RegisterForm({super.key});
 
-  @override
-  State<RegisterForm> createState() => _RegisterFormState();
-}
-
-class _RegisterFormState extends State<RegisterForm> {
-  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-  //String username = "";
-  //String email = "";
-  //String password = "";
-
+  //final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     final registerCubit = context.watch<RegisterCubit>();
+    final username = registerCubit.state.userName;
+    final password = registerCubit.state.password;
+    final email = registerCubit.state.email;
 
     return Form(
-      key: _formkey,
+      //key: _formkey,
       child: Column(children: [
         const SizedBox(
           height: 10,
         ),
         CustomTextForm(
-          label: "Nombre de usuario",
+          label: "Usuario",
           icon: (Icons.person_2_outlined),
-          onChanged: (value) {
-            registerCubit.userNameChanged(value);
-            _formkey.currentState?.validate();
-          },
-          validator: (value) {
-            if (value == null || value.trim().isEmpty) return "Campo requerido";
-            if (value.length < 6) return "Mas de 6 letras";
-            return null;
-          },
+          onChanged: registerCubit.userNameChanged,
+          errorMessage: username.errorMessage,
+          //validator: (value) {
+          //  if (value == null || value.trim().isEmpty) return "Campo requerido";
+          //  if (value.length < 6) return "Mas de 6 letras";
+          //  return null;
+          //},
         ),
         const SizedBox(
           height: 10,
@@ -45,17 +37,8 @@ class _RegisterFormState extends State<RegisterForm> {
         CustomTextForm(
           label: "Correo electronico",
           icon: Icons.mail_outlined,
-          onChanged: (value) {
-            registerCubit.emailChanged(value);
-            _formkey.currentState?.validate();
-          },
-          validator: (value) {
-            if (value == null || value.trim().isEmpty) return "Campo requerido";
-            final emialReg =
-                RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}\$");
-            if (!emialReg.hasMatch(value)) return "No tiene formato de correo";
-            return null;
-          },
+          onChanged: registerCubit.emailChanged,
+          errorMessage: email.errorMessage,
         ),
         const SizedBox(
           height: 10,
@@ -64,23 +47,16 @@ class _RegisterFormState extends State<RegisterForm> {
           label: "Contrasena",
           obscureText: true,
           icon: Icons.password_outlined,
-          onChanged: (value) {
-            registerCubit.passwordChanged(value);
-            _formkey.currentState?.validate();
-          },
-          validator: (value) {
-            if (value == null || value.trim().isEmpty) return "Campo requerido";
-            if (value.length < 6) return "Mas de 6 letras";
-            return null;
-          },
+          onChanged: registerCubit.passwordChanged,
+          errorMessage: password.errorMessage,
         ),
         const SizedBox(
           height: 10,
         ),
         FilledButton.tonalIcon(
             onPressed: () {
-              final isValid = _formkey.currentState!.validate();
-              if (!isValid) return;
+              //final isValid = _formkey.currentState!.validate();
+              //if (!isValid) return;
               registerCubit.onSubmit();
             },
             label: const Text("Crear un usuario"),
