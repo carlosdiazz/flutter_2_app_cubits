@@ -39,7 +39,9 @@ class _View extends StatelessWidget {
         return ListTile(
           title: Text(notification.title),
           subtitle: Text(notification.body),
-          leading: Text(""),
+          leading: notification.imageUrl != null
+              ? Image.network(notification.imageUrl!)
+              : null,
         );
       },
     );

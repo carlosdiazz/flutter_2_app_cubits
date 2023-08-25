@@ -24,6 +24,7 @@ class NotificactionsBloc
 
   NotificactionsBloc() : super(NotificactionsState()) {
     on<NotificactionStatusChanged>(_notificationsStatusChanged);
+    on<NotificationRecived>(_onPushMessageReceived);
 
     //*Tan pronto la app Abra le saldra
     //requestPermission();
@@ -73,6 +74,7 @@ class NotificactionsBloc
             ? message.notification!.android?.imageUrl
             : message.notification!.apple?.imageUrl);
     print(notification);
+    add(NotificationRecived(notification));
   }
 
   void _onForegroundMessage() {
@@ -97,6 +99,13 @@ class NotificactionsBloc
   void _notificationsStatusChanged(
       NotificactionStatusChanged event, Emitter<NotificactionsState> emit) {
     emit(state.copyWith(status: event.status));
+    _getFCMToken();
+  }
+
+  void _onPushMessageReceived(
+      NotificationRecived event, Emitter<NotificactionsState> emit) {
+    emit(state
+        .copyWith(notifications: [event.pushMessage, ...state.notifications]));
     _getFCMToken();
   }
 }

@@ -11,7 +11,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   //Recibir notificaciones con la app Cerrada
-  //FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
+  FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
   await NotificactionsBloc.initializerFCM();
   runApp(MultiBlocProvider(providers: [
     BlocProvider(
