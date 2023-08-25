@@ -29,10 +29,19 @@ class _View extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final notificacionBloc = context.watch<NotificactionsBloc>().state;
+    final notificacions =
+        context.watch<NotificactionsBloc>().state.notifications;
 
-    return Center(
-      child: Text("Notificaciones ${notificacionBloc.status}"),
+    return ListView.builder(
+      itemCount: notificacions.length,
+      itemBuilder: (context, index) {
+        final notification = notificacions[index];
+        return ListTile(
+          title: Text(notification.title),
+          subtitle: Text(notification.body),
+          leading: Text(""),
+        );
+      },
     );
   }
 }
