@@ -9,6 +9,7 @@ class AppRoutes {
   static const String blocCounter = "/counter-bloc";
   static const String registerScreen = "/register";
   static const String notificationsScreen = "/notificationsScreen";
+  static const String pushDatailsScreen = "/pushDatailsScreen";
 }
 
 final appRouter = GoRouter(routes: [
@@ -31,5 +32,11 @@ final appRouter = GoRouter(routes: [
   GoRoute(
     path: AppRoutes.notificationsScreen,
     builder: (context, state) => const NotificationsScreen(),
+  ),
+  GoRoute(
+    path: "${AppRoutes.pushDatailsScreen}/:messageId",
+    builder: (context, state) => DetailsScreen(
+      pushMessageId: state.pathParameters["messageId"] ?? "404",
+    ),
   )
 ]);

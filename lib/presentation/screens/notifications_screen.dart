@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2_forms_app/config/router/app_router.dart';
 import 'package:flutter_2_forms_app/presentation/blocs/notifications_bloc/notificactions_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
@@ -42,6 +44,10 @@ class _View extends StatelessWidget {
           leading: notification.imageUrl != null
               ? Image.network(notification.imageUrl!)
               : null,
+          onTap: () {
+            context.push(
+                "${AppRoutes.pushDatailsScreen}/${notification.messageId}");
+          },
         );
       },
     );
