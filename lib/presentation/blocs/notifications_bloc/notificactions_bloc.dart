@@ -58,8 +58,7 @@ class NotificactionsBloc
     print(token);
   }
 
-  void _handleRemoteMessage(RemoteMessage message) {
-    print("Entro");
+  void handleRemoteMessage(RemoteMessage message) {
     if (message.notification == null) return;
 
     print("Por aca");
@@ -79,7 +78,7 @@ class NotificactionsBloc
 
   void _onForegroundMessage() {
     print("ENTROoooooooooooooooo");
-    FirebaseMessaging.onMessage.listen(_handleRemoteMessage);
+    FirebaseMessaging.onMessage.listen(handleRemoteMessage);
   }
 
   void requestPermission() async {
